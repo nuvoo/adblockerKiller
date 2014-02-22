@@ -16,7 +16,6 @@
     $.fn.adBlockKiller = function (options) {
 
         var settings = $.extend({
-            removeElementContent: 'html',
             stopMessage: 'Your\'re seeing this message because you have an ad blocker enabled. Please consider turning off your ad blocker on our site. Our adverts are non-intrusive and help us keep the website running without cost. Please <a href="http://removeadblock.com/">click here</a> to find out why you should remove adblock',
             redirectUrl: null,
             trollPopups: false,
@@ -28,7 +27,7 @@
             $(this).append('<div class="_t c mnr-c" id="tads">These ads are based on your current search terms.</div>');
             if ($('#tads').height() == 0) {
                 if( settings.redirectUrl === null ){
-                    $(settings.removeElementContent).html(settings.stopMessage);
+                    $(this).html(settings.stopMessage);
                 } else {
                     window.location.replace(settings.redirectUrl);
                 }
